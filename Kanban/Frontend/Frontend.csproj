@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="View\clipart10380.png" />
+    <None Remove="View\clipart153139.png" />
+    <None Remove="View\hazemaster-gray-gradient-ui-background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\clipart10380.png" />
+    <Resource Include="View\clipart153139.png" />
+    <Resource Include="View\hazemaster-gray-gradient-ui-background.jpg" />
+  </ItemGroup>
+
+</Project>

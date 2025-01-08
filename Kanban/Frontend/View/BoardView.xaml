@@ -1,0 +1,70 @@
+﻿<Window x:Class="Frontend.View.BoardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend.View"
+        mc:Ignorable="d"
+        Title="BoardView" Height="580" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" Background="#FF6C6C6C">
+            <Label x:Name="TitleOfUserBoards" Content="{Binding Path=Title, Mode=OneTime}" HorizontalAlignment="Center" Foreground="#FFD361EE" FontSize="16" FontWeight="Bold" FontStyle="Italic"/>
+            <Label x:Name="label1" Content="Backlog list" HorizontalAlignment="Center" Foreground="#FFEF8585" FontSize="16" FontWeight="Bold"/>
+            <DockPanel Height="115" LastChildFill="True">
+                <ListBox x:Name="BackLogShow" ItemsSource="{Binding Path=Board.BacklogList}" HorizontalContentAlignment="Stretch" Background="#FF6C6C6C">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#FFEF8585" BorderThickness="1">
+                            <StackPanel Orientation="Vertical" >
+                                    <TextBox x:Name="TaskTitle" Text="{Binding Path=StringTitle, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" FontWeight="Bold" Background="#FF6C6C6C" Foreground="#FFEF8585" SelectionBrush="#FFEF8585" TextDecorations="Underline"/>
+                                    <TextBox x:Name="TaskDecs" Text="{Binding Path=StringDescription, Mode=OneWay}" BorderBrush="{x:Null}" Background="{Binding Path=DataContext.BackgroundColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" IsReadOnly="True" SelectionBrush="#FFD361EE" SelectionTextBrush="#FFD361EE" Foreground="#FFEF8585"/>
+                                    <TextBox x:Name="TaskCreationTime" Text="{Binding Path=StringCreationTime, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" Background="#FF6C6C6C" Foreground="#FFEF8585"/>
+                                    <TextBox x:Name="TaskDueDate" Text="{Binding Path=StringDueDate, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" Background="#FF6C6C6C" Foreground="#FFEF8585"/>
+                                </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+            <Label x:Name="label2" Content="In Progress list" HorizontalAlignment="Center" Foreground="#FFF3FA80" FontSize="16" FontWeight="Bold"/>
+            <DockPanel Height="115" LastChildFill="True">
+                <ListBox x:Name="InpProgressShow" ItemsSource="{Binding Path=Board.InProgressList}" HorizontalContentAlignment="Stretch" Background="#FF6C6C6C">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#FFF3FA80" BorderThickness="1">
+                                <StackPanel Orientation="Vertical" >
+                                    <TextBox x:Name="TaskTitle" Text="{Binding Path=StringTitle, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" FontWeight="Bold" Foreground="#FFF3FA80" Background="#FF6C6C6C" TextDecorations="Underline"/>
+                                    <TextBox x:Name="TaskDecs" Text="{Binding Path=StringDescription, Mode=OneWay}" BorderBrush="{x:Null}" Background="{Binding Path=DataContext.BackgroundColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" IsReadOnly="True" Foreground="#FFF3FA80" />
+                                    <TextBox x:Name="TaskCreationTime" Text="{Binding Path=StringCreationTime, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" Foreground="#FFF3FA80" Background="#FF6C6C6C"/>
+                                    <TextBox x:Name="TaskDueDate" Text="{Binding Path=StringDueDate, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" Foreground="#FFF3FA80" Background="#FF6C6C6C"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+            <Label x:Name="label3" Content="Done list" HorizontalAlignment="Center" Foreground="#FF97F187" FontSize="16" FontWeight="Bold"/>
+            <DockPanel Height="115" LastChildFill="True">
+                <ListBox x:Name="DoneListShow" ItemsSource="{Binding Path=Board.DoneList}" HorizontalContentAlignment="Stretch" Background="#FF6C6C6C">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#FF97F187" BorderThickness="1">
+                                <StackPanel Orientation="Vertical" >
+                                    <TextBox x:Name="TaskTitle" Text="{Binding Path=StringTitle, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" SelectionBrush="#FF97F187" SelectionTextBrush="#FF97F187" Foreground="#FF97F187" FontWeight="Bold" Background="#FF6C6C6C" TextDecorations="Underline"/>
+                                    <TextBox x:Name="TaskDecs" Text="{Binding Path=StringDescription, Mode=OneWay}" BorderBrush="{x:Null}" Background="{Binding Path=DataContext.BackgroundColor, Mode=OneWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" IsReadOnly="True" Foreground="#FF97F187" OpacityMask="Black"/>
+                                    <TextBox x:Name="TaskCreationTime" Text="{Binding Path=StringCreationTime, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" Foreground="#FF97F187" Background="#FF6C6C6C"/>
+                                    <TextBox x:Name="TaskDueDate" Text="{Binding Path=StringDueDate, Mode=OneWay}" BorderBrush="{x:Null}" IsReadOnly="True" Foreground="#FF97F187" Background="#FF6C6C6C"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+
+            <Button Content="Back" Click="Button_Click_1" Background="#FF85159A" FontSize="16" FontWeight="Bold" Foreground="White" Height="30" Margin="0,0,0,2" BorderBrush="White"/>
+            <Button Content="Logout" Click="Button_Click" Foreground="White" Background="#FF85159A" Height="30" FontSize="16" FontWeight="Bold" BorderBrush="White"/>
+
+
+        </StackPanel>
+    </Grid>
+</Window>
